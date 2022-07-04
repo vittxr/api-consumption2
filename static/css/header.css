@@ -1,0 +1,40 @@
+.main-header {
+    display: block;
+    width: 100vw;
+    background-color: #260101;
+    color: white;
+    padding: 1.5rem 0;
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.main-header__navbar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main-header__navbar ul {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+}
+
+.main-header__navbar--components ul li {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 1rem;
+}
+
+.search-box input {
+    padding: 0.25rem;
+} 
+
+.search-box__icon {
+    vertical-align: middle;
+    margin: 0 1rem;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pokemon.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animation.css')}}">
+</head>
+<body>
+    <div class="backdrop"></div> 
+    <header class="main-header">
+          <nav class="main-header__navbar">
+              <ul class="main-header__navbar--components">
+                 <li class="title">
+                     <h1>PokeApp</h1>
+                 </li>
+                 <li class="search-box">
+                     <input type="text" placeholder='pesquisar pokemon' class="search-box__input">
+                     <img src="{{url_for ('static', filename='img/search.png')}}" class="search-box__icon">
+                 </li>
+              </ul>
+          </nav>
+    </header>
+
+    <main>
+        <div class="container-pokemons">
+        {% for pokemon in pokemons['results'] %}  
+        <div class="pokemon">
+            <div class="pokemon-image">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{loop.index}}.png"/>
+                <!-- Eu posso ter o indice do loop, usando a sintaxe acima. Tem mais coisas interessantes na documentação do jinja. -->
+            </div>
+                
+            <div class="pokemon-description">
+                <h1 class="pokemon-name"> {{ pokemon['name'] }}</h1>
+            </div>
+        </div>
+        {% endfor %}
+        </div>   
+    </main>
+
+
+
+    <!--Color thief lib: -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.3.0/color-thief.umd.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+     
+    <!--meus scripts: -->
+    <script type='text/javascript' src="{{url_for('static', filename='js/poke-card.js')}}"></script>
+    <script defer src="{{url_for('static', filename='js/main.js')}}"></script>
+    <script defer src="{{url_for('static', filename='js/search-pokemon.js')}}"></script>
+</body>
+
+</html>
